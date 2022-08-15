@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="issac.centeno" id="041022-010">
+		<insert tableName="tr_shoppers">
+			<column name="dx_name" value="Olive Thompson" />
+			<column name="dx_email" value="olive.thompson@not_gmail.com" />
+			<column name="dx_nif" value="411111111Z" />
+		</insert>
+		<insert tableName="tr_shoppers">
+			<column name="dx_name" value="Virgen Anderson" />
+			<column name="dx_email" value="virgen.anderson@not_gmail.com" />
+			<column name="dx_nif" value="411111112Z" />
+		</insert>
+		<insert tableName="tr_shoppers">
+			<column name="dx_name" value="Reagan Auer" />
+			<column name="dx_email" value="reagan.auer@not_gmail.com" />
+			<column name="dx_nif" value="411111113Z" />
+		</insert>
+		<insert tableName="tr_shoppers">
+			<column name="dx_name" value="Shanelle Satterfield" />
+			<column name="dx_email" value="shanelle.satterfield@not_gmail.com" />
+			<column name="dx_nif" value="411111114Z" />
+		</insert>
+		
+	</changeSet>
+</databaseChangeLog>

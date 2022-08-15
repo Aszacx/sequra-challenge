@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+	<!-- Merchants -->
+	<changeSet author="issac.centeno" id="041022-001">
+		<createTable tableName="tr_merchants">
+			<column autoIncrement="true" name="pk_merchant_id" type="int">
+				<constraints primaryKey="true" primaryKeyName="sk_id_merchant" unique="true" nullable="false" />
+			</column>
+
+			<column name="dx_name" type="varchar(100)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_email" type="varchar(100)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_cif" type="varchar(50)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!-- Shoppers -->
+	<changeSet author="issac.centeno" id="041022-002">
+		<createTable tableName="tr_shoppers">
+			<column autoIncrement="true" name="pk_shopper_id" type="int">
+				<constraints primaryKey="true" primaryKeyName="sk_id_shopper" unique="true" nullable="false" />
+			</column>
+
+			<column name="dx_name" type="varchar(100)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_email" type="varchar(100)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_nif" type="varchar(50)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!-- Orders -->
+	<changeSet author="issac.centeno" id="041022-003">
+		<createTable tableName="tr_orders">
+			<column autoIncrement="true" name="pk_order_id" type="int">
+				<constraints primaryKey="true" primaryKeyName="sk_id_order" unique="true" nullable="false" />
+			</column>
+
+			<!-- ForeignKey -->
+			<column name="dn_merchant_id" type="int">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dn_shopper_id" type="int">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+
+			<column name="dx_amount" type="decimal(10, 2)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_status" type="varchar(30)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dd_created_at" type="date">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dd_completed_at" type="date">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!-- Disbursements -->
+	<changeSet author="issac.centeno" id="041022-004">
+		<createTable tableName="tr_disbursements">
+			<column autoIncrement="true" name="pk_disbursement_id" type="int">
+				<constraints primaryKey="true" primaryKeyName="sk_id_disbursement" unique="true" nullable="false" />
+			</column>
+
+			<!-- ForeignKey -->
+			<column name="dn_merchant_id" type="int">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_amount" type="decimal(10, 2)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_taxes" type="decimal(10, 2)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dx_status" type="varchar(30)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dd_paid_at" type="date">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="db_pending_orders" type="boolean">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!-- Taxes -->
+	<!-- <changeSet author="issac.centeno" id="041022-005">
+		<createTable tableName="cs_taxes">
+			<column autoIncrement="true" name="pk_tax_id" type="int">
+				<constraints primaryKey="true" primaryKeyName="sk_id_tax" unique="true" nullable="false" />
+			</column>
+
+			<column name="dn_percentage" type="decimal(10, 2)">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dn_min_amount" type="int">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+			<column name="dn_max_amount" type="int">
+				<constraints nullable="true" primaryKey="false" unique="false" />
+			</column>
+		</createTable>
+	</changeSet> -->
+
+	<!-- ForeignKey -->
+	<changeSet author="issac.centeno" id="041022-006">
+		<addForeignKeyConstraint baseColumnNames="dn_merchant_id" 
+								 baseTableName="tr_orders" 
+								 constraintName="fk_merchant_order_id" 
+								 referencedColumnNames="pk_merchant_id" 
+								 referencedTableName="tr_merchants" />
+    </changeSet>
+
+	<changeSet author="issac.centeno" id="041022-007">
+		<addForeignKeyConstraint baseColumnNames="dn_shopper_id" 
+								 baseTableName="tr_orders" 
+								 constraintName="fk_shopper_order_id" 
+								 referencedColumnNames="pk_shopper_id" 
+								 referencedTableName="tr_shoppers" />
+    </changeSet>
+
+	<changeSet author="issac.centeno" id="041022-008">
+
+		<addForeignKeyConstraint baseColumnNames="dn_merchant_id"
+                             baseTableName="tr_disbursements"
+                             constraintName="fk_merchant_disbursement_id"
+                             referencedColumnNames="pk_merchant_id"
+                             referencedTableName="tr_merchants" />
+	</changeSet>
+
+	<!-- Initial Data -->
+	<changeSet author="issac.centeno" id="041022-009">
+		<sqlFile path="changesets/db.changelog.initial.inserts.tr_merchants.sql"/>
+  	</changeSet>
+
+	<changeSet author="issac.centeno" id="041022-010">
+		<sqlFile path="changesets/db.changelog.initial.inserts.tr_shoppers.sql"/>
+  	</changeSet>
+
+	<changeSet author="issac.centeno" id="041022-011">
+		<sqlFile path="changesets/db.changelog.initial.inserts.tr_orders.sql"/>
+  	</changeSet>
+
+
+	<!-- Initial Data Merchants -->
+	<!-- <include file="changesets/db.changelog.insert.trmerchants-001.xml"/> -->
+
+	<!-- Initial Data Shoppers -->
+	<!-- <include file="changesets/db.changelog.insert.trshoppers-001.xml"/> -->
+
+	<!-- Initial Data Orders -->
+	<!-- <include file="changesets/db.changelog.insert.trorders-001.xml"/> -->
+
+	<!-- Initial Data Disbursements -->
+	<!-- <include file="changesets/db.changelog.insert.trdisbursements-001.xml"/> -->
+
+</databaseChangeLog>

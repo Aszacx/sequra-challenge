@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Order API",
+    "version": "1.0.0",
+    "description": "Microservice Order API"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9100"
+    }
+  ],
+  "apis": [
+    "/Users/icenteno/Desktop/nodejs/sequra/services/order-service/src/**/**/*.ts"
+  ],
+  "paths": {
+    "/api/v1/disbursements/:id": {
+      "post": {
+        "description": "Get all disbursements by merchant_id",
+        "tags": [
+          "Disbursements"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "example": "1"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": [
+                        {
+                          "pk_disbursement_id": 226,
+                          "dn_merchant_id": 2,
+                          "dx_amount": "30059.10",
+                          "dx_taxes": "285.56",
+                          "dx_status": "in process",
+                          "dd_paid_at": "2018-01-16",
+                          "db_pending_orders": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ping/": {
+      "post": {
+        "description": "Test service",
+        "tags": [
+          "Ping"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pong",
+            "content": {
+              "appication/json": {
+                "example": {
+                  "status": 200,
+                  "message": "pong"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorTo": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "string",
+            "description": "Código de error de negocio",
+            "example": 10
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "Error de sistema",
+            "example": "Null pointer"
+          },
+          "userError": {
+            "type": "string",
+            "description": "Human readable error",
+            "example": "No se encontró información"
+          },
+          "info": {
+            "type": "string",
+            "description": "Información sobre solución del error",
+            "example": "http://info.com"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

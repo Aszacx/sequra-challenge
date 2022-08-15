@@ -1,0 +1,14 @@
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (1,'Flatley-Rowe','info@flatley-rowe.com','B611111111');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (2,'Weissnat, Hackett and Purdy','info@weissnat-hackett-and-purdy.com','B611111112');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (3,'Streich, Klocko and Marvin','info@streich-klocko-and-marvin.com','B611111113');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (4,'Pfeffer, Wiza and Jacobson','info@pfeffer-wiza-and-jacobson.com','B611111114');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (5,'Von and Sons','info@von-and-sons.com','B611111115');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (6,'Oga Inc','info@oga-inc.com','B611111116');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (7,'Mayer, Kemmer and Schumm','info@mayer-kemmer-and-schumm.com','B611111117');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (8,'Zulauf-Roberts','info@zulauf-roberts.com','B611111118');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (9,'Towne-Waelchi','info@towne-waelchi.com','B611111119');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (10,'Schoen Inc','info@schoen-inc.com','B611111110');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (11,'Dietrich-Ortiz','info@dietrich-ortiz.com','B611111111');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (12,'Lubowitz, Hessel and Berge','info@lubowitz-hessel-and-berge.com','B611111112');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (13,'Streich-Koepp','info@streich-koepp.com','B611111113');
+INSERT INTO tr_merchants(pk_merchant_id,dx_name,dx_email,dx_cif) VALUES (14,'Hodkiewicz-Stehr','info@hodkiewicz-stehr.com','B611111114');

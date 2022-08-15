@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="issac.centeno" id="041022-009">
+		<insert tableName="tr_merchants">
+			<column name="dx_name" value="Treutel, Schumm and Fadel" />
+			<column name="dx_email" value="info@treutel-schumm-and-fadel.com" />
+			<column name="dx_cif" value="B611111111" />
+		</insert>
+		<insert tableName="tr_merchants">
+			<column name="dx_name" value="Windler and Sons" />
+			<column name="dx_email" value="info@windler-and-sons.com" />
+			<column name="dx_cif" value="B611111112" />
+		</insert>
+		<insert tableName="tr_merchants">
+			<column name="dx_name" value="Mraz and Sons" />
+			<column name="dx_email" value="info@mraz-and-sons.com" />
+			<column name="dx_cif" value="B611111113" />
+		</insert>
+		<insert tableName="tr_merchants">
+			<column name="dx_name" value="Cummerata LLC" />
+			<column name="dx_email" value="info@cummerata-llc.com" />
+			<column name="dx_cif" value="B611111114" />
+		</insert>
+		
+	</changeSet>
+</databaseChangeLog>

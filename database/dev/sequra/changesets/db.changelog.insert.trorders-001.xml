@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="issac.centeno" id="041022-011">
+		<insert tableName="tr_orders">
+			<column name="dn_merchant_id" value="1" />
+			<column name="dn_shopper_id" value="1" />
+			<column name="dx_amount" value="61.74" />
+			<column name="dx_status" value="completed" />
+			<column name="dd_created_at" value="2022-10-01 13:48:00" />
+			<column name="dd_completed_at" value="2022-10-03 13:48:00" />
+		</insert>
+		<insert tableName="tr_orders">
+			<column name="dn_merchant_id" value="1" />
+			<column name="dn_shopper_id" value="2" />
+			<column name="dx_amount" value="293.08" />
+			<column name="dx_status" value="shipping" />
+			<column name="dd_created_at" value="2022-10-02 13:48:00" />
+			<column name="dd_completed_at" value="null" />
+		</insert>
+		<insert tableName="tr_orders">
+			<column name="dn_merchant_id" value="2" />
+			<column name="dn_shopper_id" value="3" />
+			<column name="dx_amount" value="373.33" />
+			<column name="dx_status" value="completed" />
+			<column name="dd_created_at" value="2022-10-01 13:48:00" />
+			<column name="dd_completed_at" value="2022-10-03 13:48:00" />
+		</insert>
+		<insert tableName="tr_orders">
+			<column name="dn_merchant_id" value="3" />
+			<column name="dn_shopper_id" value="4" />
+			<column name="dx_amount" value="60.48" />
+			<column name="dx_status" value="completed" />
+			<column name="dd_created_at" value="2022-10-01 13:48:00" />
+			<column name="dd_completed_at" value="2022-10-03 13:48:00" />
+		</insert>
+		<insert tableName="tr_orders">
+			<column name="dn_merchant_id" value="2" />
+			<column name="dn_shopper_id" value="2" />
+			<column name="dx_amount" value="213.97" />
+			<column name="dx_status" value="shipping" />
+			<column name="dd_created_at" value="2022-10-04 13:48:00" />
+			<column name="dd_completed_at" value="null" />
+		</insert>
+		
+	</changeSet>
+</databaseChangeLog>
